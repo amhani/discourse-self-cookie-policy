@@ -8,12 +8,6 @@ export default apiInitializer("1.8.0", (/* api */) => {
 async function loadCookiePolicy() {
   await loadScript(settings.theme_uploads_local.cookie_policy_js);
   cpNs.cookiePolicy();
-
-  try {
-    tryLogin();    
-  } catch (e) {
-    console.log('try login', e);
-  }
 }
 
 
@@ -34,7 +28,7 @@ function tryLogin () {
       document.cookie = `${flag}=1`;
       dom?.click();
       console.log('do tryLogin');
-    }    
+    }
   } else {
     document.cookie = `${flag}=0`;
     console.log('reset tryLoign')
